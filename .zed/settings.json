@@ -1,0 +1,10 @@
+{
+  "format_on_save": "prettier",
+  "lsp": {
+    "biome": {
+      "settings": {
+        "enabled": false
+      }
+    }
+  }
+}
