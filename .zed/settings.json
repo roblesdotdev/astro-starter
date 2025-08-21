@@ -1,9 +1,14 @@
 {
   "format_on_save": "prettier",
+  "languages": {
+    "Astro": {
+      "language_servers": ["!biome", "..."]
+    }
+  },
   "lsp": {
     "biome": {
       "settings": {
-        "enabled": false
+        "require_config_file": true
       }
     }
   }
