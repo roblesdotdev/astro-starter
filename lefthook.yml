@@ -4,3 +4,5 @@ pre-commit:
     format:
       run: bun format:write
       stage_fixed: true
+    check:
+      run: bun run check
