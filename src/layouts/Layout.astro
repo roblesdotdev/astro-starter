@@ -1,4 +1,6 @@
 ---
+import Footer from '~/components/Footer.astro'
+import Header from '~/components/Header.astro'
 import '~/styles/global.css'
 ---
 
@@ -11,6 +13,14 @@ import '~/styles/global.css'
     <title>Astro Starter</title>
   </head>
   <body class="min-h-screen min-w-80 antialiased">
-    <slot />
+    <div class="flex min-h-screen flex-col">
+      <Header />
+      <div
+        class="mx-auto grid w-full max-w-6xl flex-1 place-content-center px-4"
+      >
+        <slot />
+      </div>
+      <Footer />
+    </div>
   </body>
 </html>
