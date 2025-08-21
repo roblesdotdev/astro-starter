@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+@theme {
+  --font-sans: 'Satoshi', ui-sans, sans-serif;
+}
+
 html {
   color-scheme: dark;
 }
