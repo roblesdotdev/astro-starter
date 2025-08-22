@@ -1,6 +1,17 @@
+---
+import { siteConfig } from '~/utils/site-config'
+
+const { title } = siteConfig.site
+---
+
 <header class="h-16 w-full">
   <nav class="mx-auto flex h-full max-w-6xl items-center justify-between px-4">
-    <h1>Site</h1>
-    <button>Get Started</button>
+    <a href="/" class="text-sm opacity-75 hover:opacity-100">{title}</a>
+    <a
+      class="text-sm opacity-75 hover:underline hover:opacity-100"
+      href="https://github.com/roblesdotdev/astro-starter"
+      target="_blank"
+      rel="noreferrer noopener">Get Started</a
+    >
   </nav>
 </header>

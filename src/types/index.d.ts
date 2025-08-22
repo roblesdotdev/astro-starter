@@ -6,6 +6,8 @@ export type SiteConfig = {
     author: string
     url: string
     favicon: string
+    keywords: string[]
+    image: string
   }
   color: {
     mode: 'dark' | 'light'
@@ -13,19 +15,11 @@ export type SiteConfig = {
     dark: string
   }
   seo?: {
-    twitterID?: string
     verification?: {
       google?: string
       bing?: string
       yandex?: string
       baidu?: string
     }
-    googleAnalyticsID?: string
-    umamiAnalyticsID?: string
-    follow?: {
-      feedID?: string
-      userID?: string
-    }
-    apiflashKey?: string
   }
 }

@@ -4,6 +4,7 @@ import { defineConfig } from 'astro/config'
 
 export default defineConfig({
   site: 'http://localhost:3000',
+  prefetch: true,
   server: {
     port: 3000,
   },

@@ -10,8 +10,11 @@ export type Props = {
 const { postTitle, postDescription } = Astro.props
 
 // Site Configuration
-const { title, subtitle, description, author, url, favicon } = siteConfig.site
+const { title, subtitle, description, author, url, favicon, image, keywords } =
+  siteConfig.site
+const { verification = {} } = siteConfig.seo ?? {}
 const { mode, light, dark } = siteConfig.color
+const { google, bing, yandex, baidu } = verification
 
 // Site Metadata
 const initialTheme = mode === 'dark' ? dark : light
@@ -24,6 +27,8 @@ const pageTitle = postTitle
   ? `${postTitle} - ${siteTitle}`
   : `${siteTitle} - ${siteSubtitle}`
 const pageDescription = postDescription || siteDescription
+const pageImage = image
+const pageKeywords = keywords.join(',')
 ---
 
 <head>
@@ -52,6 +57,7 @@ const pageDescription = postDescription || siteDescription
   <meta name="description" content={pageDescription} />
   <meta name="author" content={author} />
   <meta name="theme-color" content={initialTheme} />
+  <meta name="keywords" content={pageKeywords} />
 
   <!-- Preload -->
   <link
@@ -71,8 +77,14 @@ const pageDescription = postDescription || siteDescription
   <meta property="og:url" content={Astro.url} />
   <meta property="og:title" content={pageTitle} />
   <meta property="og:description" content={pageDescription} />
-  <meta property="og:image" content="TODO" />
+  <meta property="og:image" content={pageImage} />
   <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Site Verification -->
+  {google && <meta name="google-site-verification" content={google} />}
+  {bing && <meta name="msvalidate.01" content={bing} />}
+  {yandex && <meta name="yandex-verification" content={yandex} />}
+  {baidu && <meta name="baidu-site-verification" content={baidu} />}
 
   <!-- Global View Transition -->
   <ClientRouter fallback="none" />

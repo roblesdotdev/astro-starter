@@ -1,5 +1,11 @@
+---
+import { siteConfig } from '~/utils/site-config'
+
+const { title } = siteConfig.site
+---
+
 <footer>
   <div class="mx-auto max-w-6xl px-4 py-12 text-center">
-    <p>Astro Starter</p>
+    <p>{title}</p>
   </div>
 </footer>
