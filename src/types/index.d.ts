@@ -10,7 +10,7 @@ export type SiteConfig = {
     image: string
   }
   color: {
-    mode: 'dark' | 'light'
+    mode: 'dark' | 'light' | 'auto'
     light: string
     dark: string
   }

@@ -12,7 +12,7 @@ export const siteConfig: SiteConfig = {
     image: '/og.png',
   },
   color: {
-    mode: 'dark',
+    mode: 'auto',
     light: '#fff',
     dark: '#111',
   },
