@@ -1,0 +1,48 @@
+---
+import ThemeToggleIcon from '~/assets/icons/theme-toggle.svg'
+import { siteConfig } from '~/utils/site-config'
+
+const { dark, light } = siteConfig.color
+---
+
+<button class="size-4 hover:scale-90" id="toggle-theme-button">
+  <span class="sr-only">Switch light/dark theme</span>
+  <ThemeToggleIcon fill="currentColor" />
+</button>
+
+<script
+  is:inline
+  define:vars={{
+    dark,
+    light,
+  }}
+>
+  function applyTheme(isDark) {
+    document.documentElement.classList.toggle('dark', isDark)
+
+    // Update meta theme-color tag
+    const metaThemeColor = document.head.querySelector(
+      'meta[name="theme-color"]',
+    )
+    const metaColorScheme = document.head.querySelector(
+      'meta[name="color-scheme"]',
+    )
+
+    if (metaThemeColor && dark && light) {
+      metaThemeColor.setAttribute('content', isDark ? dark : light)
+    }
+    if (metaColorScheme) {
+      metaColorScheme.setAttribute('content', isDark ? 'dark' : 'light')
+    }
+    localStorage.setItem('theme', isDark ? 'dark' : 'light')
+  }
+
+  // Toggle theme mode
+  function toggleTheme() {
+    const isDark = !document.documentElement.classList.contains('dark')
+    applyTheme(isDark)
+  }
+
+  const btn = document.getElementById('toggle-theme-button')
+  btn?.addEventListener('click', toggleTheme, { passive: true })
+</script>

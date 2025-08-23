@@ -1,11 +1,15 @@
 ---
 import { siteConfig } from '~/utils/site-config'
+import ThemeToggle from './ThemeToggle.astro'
 
 const { title } = siteConfig.site
 ---
 
 <footer>
   <div class="mx-auto max-w-6xl px-4 py-12 text-center">
-    <p>{title}</p>
+    <div class="flex items-center justify-between">
+      <p>{title}</p>
+      <ThemeToggle />
+    </div>
   </div>
 </footer>
